@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="global" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default">
+
+		<action name="mainAction" class="com.danielme.tips.struts2.tip8.actions.MainAction">
+			<result name="success">/jsp/form.jsp</result>
+		</action>
+
+	</package>
+
+</struts>
