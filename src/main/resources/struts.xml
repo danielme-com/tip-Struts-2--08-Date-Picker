@@ -6,11 +6,18 @@
 
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.custom.i18n.resources" value="global" />
-	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<!-- enable 'action' attribute -->
+	<constant name="struts.mapper.action.prefix.enabled" value="true" />
+	<!-- enable 'method'  attribute-->	
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 
 	<package name="default" namespace="/" extends="struts-default">
 
 		<action name="mainAction" class="com.danielme.tips.struts2.tip8.actions.MainAction">
+			<result name="success">/jsp/form.jsp</result>
+		</action>
+		
+		<action name="submitDateAction" class="com.danielme.tips.struts2.tip8.actions.MainAction" method="submitDate">
 			<result name="success">/jsp/form.jsp</result>
 		</action>
 

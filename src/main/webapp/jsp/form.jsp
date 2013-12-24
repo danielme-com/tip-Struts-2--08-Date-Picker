@@ -6,7 +6,7 @@
 	<head>
 		<%@include file="/jsp/head.jsp" %>
 		
-			<sj:head locale="%{locale.language}"/>
+			<sj:head locale="%{locale.language}" loadAtOnce="true"/>
 		
 			<STYLE type="text/css">         
 	            .div-error
@@ -18,25 +18,36 @@
 	                text-align: left;
 	                font-size: 1em;
 	                width: 99%;
-	                margin-top: 10px;      
+	                margin-top: 10px; 
+	                display:none;     
 	            }
 	             
 	            .div-error li
 	            {
 	                list-style-type: none;
 	            }
-	         </STYLE>
+	         </STYLE>	         
+	         
+				<s:if test="hasActionErrors()">
+					<script type="text/javascript">
+						$(document).ready(function() {
+									$(".div-error").slideDown(500);
+								});
+					</script>
+				</s:if>			
+	         
 	</head>       
 	
 	<body>
 	
 	 <s:if test="hasActionErrors()">
+	 
             <div class="div-error">
                 <s:actionerror />
             </div>
         </s:if>
 
-	<form action="mainAction" method="post">
+	<form action="submitDateAction" method="post">
 		<div style="float:left">	
 			<s:text name="date"/>: 
 			<sj:datepicker 
@@ -56,7 +67,7 @@
 	      <div style="clear:both"/>
 	          
 	      <div style="float:left">
-	        <s:submit method="submitDate" value="%{getText('submit')}"/>
+	        <s:submit value="%{getText('submit')}"/>
 	      </div>
        
 	</form>	

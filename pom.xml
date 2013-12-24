@@ -25,7 +25,7 @@
 	</licenses>
 
     <properties>
-        <struts2.version>2.3.15.2</struts2.version>
+        <struts2.version>2.3.15.3</struts2.version>
     </properties>
     
     
@@ -86,6 +86,12 @@
 			<groupId>com.jgeppert.struts2.jquery</groupId>
 			<artifactId>struts2-jquery-plugin</artifactId>
 			<version>3.6.1</version>
+			<exclusions>				
+				<exclusion>
+					<groupId>org.apache.struts</groupId>
+					<artifactId>struts2-core</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		
 		<!-- http://localhost:8080/tip8/config-browser/actionNames.action -->
